@@ -1,12 +1,14 @@
 FROM debian:jessie
 MAINTAINER Matt McCormick "matt.mccormick@kitware.com"
 
-RUN apt-get update && apt-get -y install \
+RUN apt-get update && \
+  DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
   automake \
   autogen \
   bash \
   build-essential \
   bzip2 \
+  ca-certificates \
   curl \
   file \
   git \
@@ -18,6 +20,7 @@ RUN apt-get update && apt-get -y install \
   pkg-config \
   python \
   rsync \
+  runit \
   sed \
   tar \
   vim \
@@ -48,3 +51,20 @@ RUN git clone https://github.com/martine/ninja.git && \
   python ./configure.py --bootstrap && \
   ./ninja && \
   cp ./ninja /usr/bin/
+
+WORKDIR /usr/src
+RUN rm -rf CMake* ninja
+RUN dpkg --purge \
+  autogen \
+  ca-certificates \
+  file \
+  git \
+  libcurl4-openssl-dev \
+  libssl-dev \
+  ncurses-dev \
+  rsync && apt-get -y clean && apt-get -y autoremove
+
+WORKDIR /build
+ENTRYPOINT ["/dockcross/entrypoint.sh"]
+
+COPY imagefiles/entrypoint.sh imagefiles/dockcross /dockcross/
