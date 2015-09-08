@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
 ENV CROSS_TRIPLE arm-linux-gnueabihf
 ENV CROSS_ROOT /usr/${CROSS_TRIPLE}
 
-WORKDIR /usr/src
+WORKDIR /build
 
 # Note: Toolchain file support is currently in debian Experimental:
 # https://wiki.debian.org/CrossToolchains#In_jessie_.28Debian_8.29
