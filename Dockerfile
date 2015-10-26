@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stable
 MAINTAINER Matt McCormick "matt.mccormick@kitware.com"
 
 RUN apt-get update && \
@@ -31,7 +31,7 @@ RUN apt-get update && \
 WORKDIR /usr/src
 RUN git clone git://cmake.org/cmake.git CMake && \
   cd CMake && \
-  git checkout v3.3.0-rc4
+  git checkout release
 RUN mkdir CMake-build
 WORKDIR /usr/src/CMake-build
 RUN /usr/src/CMake/bootstrap \
@@ -47,7 +47,7 @@ WORKDIR /usr/src
 # Build and install Ninja from source
 RUN git clone https://github.com/martine/ninja.git && \
   cd ninja && \
-  git checkout v1.6.0 && \
+  git checkout release && \
   python ./configure.py --bootstrap && \
   ./ninja && \
   cp ./ninja /usr/bin/
