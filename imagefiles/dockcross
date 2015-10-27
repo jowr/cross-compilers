@@ -129,7 +129,7 @@ FINAL_CONFIG=${ARG_CONFIG-${DOCKCROSS_CONFIG-$DEFAULT_CONFIG}}
 [[ -f "$FINAL_CONFIG" ]] && source "$FINAL_CONFIG"
 
 # Set the docker image
-DEFAULT_IMAGE=thewtex/cross-compiler-base
+DEFAULT_IMAGE=jowr/cross-compiler-base
 FINAL_IMAGE=${ARG_IMAGE-${DOCKCROSS_IMAGE-$DEFAULT_IMAGE}}
 
 # Set the docker run extra args (if any)

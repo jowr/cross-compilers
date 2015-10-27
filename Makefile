@@ -6,7 +6,7 @@ $1 : base.stamp $1/Dockerfile $(wildcard $1/*.cmake) $(wildcard $1/*.mk) $(wildc
 endef
 
 DOCKER = docker
-IMAGE = thewtex/cross-compiler
+IMAGE = jowr/cross-compiler
 
 IMAGES = android-arm browser-asmjs darwin-x64 linux-x86 linux-x64 linux-armv6 linux-armv7 linux-ppc64le windows-x86 windows-x64
 

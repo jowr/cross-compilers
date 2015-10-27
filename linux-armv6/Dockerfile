@@ -1,4 +1,4 @@
-FROM thewtex/cross-compiler-base
+FROM jowr/cross-compiler-base
 MAINTAINER Matt McCormick "matt.mccormick@kitware.com"
 
 # Enable 32 bits binaries

@@ -1,4 +1,4 @@
-FROM steeve/cross-compiler:base
+FROM jowr/cross-compiler-base
 MAINTAINER Steeve Morin "steeve.morin@gmail.com"
 
 ENV CROSS_TRIPLE x86_64-apple-darwin14

@@ -1,4 +1,4 @@
-FROM thewtex/cross-compiler-base
+FROM jowr/cross-compiler-base
 MAINTAINER Steeve Morin "steeve.morin@gmail.com"
 
 ENV HOST=i686-linux-gnu \
